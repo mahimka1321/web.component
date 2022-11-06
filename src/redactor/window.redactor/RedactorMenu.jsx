@@ -36,7 +36,8 @@ function RedactorMenu() {
 /////////////////////// НАСТРОЙКИ СТРЕЛКИ НАЗАД ////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// перемещинире по нажатию лкм /////////////////
+// перемещинире по нажатию лкм + localStorage //
+///////////////////////////////////////////////
 const [pressed, setPressed] = useState(false);
 const [position, setPosition] = useState(() => {
     const pos = JSON.parse(localStorage.getItem('pos'));
@@ -47,27 +48,26 @@ const [position, setPosition] = useState(() => {
   });
 
 useEffect(() => {
-    /*если нажат, вешаем обработчики перемещения, а также обработчик отжатия*/
+
     if (pressed && iui != 1) {
       window.addEventListener("mousemove", onMouseMove);
       window.addEventListener("mouseup", togglePressed);
     };
 
     return () => {
-      /*не забываем обработчики удалять*/
+
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseup", togglePressed);
     };
   }, [position, pressed]);
 
-  /*ваш mousemove*/
   const onMouseMove = (event) => {
     const x = position.x + event.movementX;
     const y = position.y + event.movementY;
     setPosition({ x, y });
     localStorage.setItem('pos', JSON.stringify({x, y}));
   };
-  /*переключение нажатия*/
+
   const togglePressed = () => {
     setPressed((prev) => !prev);
   };
@@ -211,7 +211,8 @@ useEffect(() => {
 /////////////////////// НАСТРОЙКИ СТРЕЛКИ ВПЕРЕД //////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// перемещинире по нажатию лкм /////////////////
+// перемещинире по нажатию лкм + localStorage //
+////////////////////////////////////////////////
 const [pressed1, setPressed1] = useState(false);
 const [position1, setPosition1] = useState(() => {
     const pos1 = JSON.parse(localStorage.getItem('pos1'));
@@ -222,27 +223,26 @@ const [position1, setPosition1] = useState(() => {
   });
 
 useEffect(() => {
-    /*если нажат, вешаем обработчики перемещения, а также обработчик отжатия*/
+
     if (pressed1 && iui != 1) {
       window.addEventListener("mousemove", onMouseMove1);
       window.addEventListener("mouseup", togglePressed1);
     };
 
     return () => {
-      /*не забываем обработчики удалять*/
+
       window.removeEventListener("mousemove", onMouseMove1);
       window.removeEventListener("mouseup", togglePressed1);
     };
   }, [position1, pressed1]);
 
-  /*ваш mousemove*/
   const onMouseMove1 = (event) => {
     const x = position1.x + event.movementX;
     const y = position1.y + event.movementY;
     setPosition1({ x, y });
     localStorage.setItem('pos1', JSON.stringify({x, y}));
   };
-  /*переключение нажатия*/
+
   const togglePressed1 = () => {
     setPressed1((prev) => !prev);
   };
@@ -254,7 +254,6 @@ useEffect(() => {
       return posNew1;
     });
 };
-
 
     // БЭКГРАУНД БЛОКА + localStorage //
     //////////////////////////////////////
@@ -277,7 +276,6 @@ useEffect(() => {
         state1 =  rot1
     };
 
-
     // БОРДЕР БЛОКА + localStorage //
     //////////////////////////////////////
     let saveBorderColorDiv2 = localStorage.getItem("BorderColorDiv2");
@@ -290,7 +288,6 @@ useEffect(() => {
         setMeaningS1(e.target.value);
         setLocalStorageBC2(e.target.value);
     };
-
 
     // left X  top Y 
     const inputX1 = useRef(); const editItemX1 = () => { inputX1.current.select(); };
@@ -386,7 +383,8 @@ useEffect(() => {
 /////////////////////// НАСТРОЙКИ СТРЕЛКИ ВПЕРЕД //////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// перемещинире по нажатию лкм /////////////////
+// перемещинире по нажатию лкм + localStorage //
+///////////////////////////////////////////////
 const [pressed2, setPressed2] = useState(false);
 const [position2, setPosition2] = useState(() => {
     const pos2 = JSON.parse(localStorage.getItem('pos2'));
@@ -397,27 +395,27 @@ const [position2, setPosition2] = useState(() => {
   });
 
 useEffect(() => {
-    /*если нажат, вешаем обработчики перемещения, а также обработчик отжатия*/
+
     if (pressed2 && iui != 1) {
       window.addEventListener("mousemove", onMouseMove2);
       window.addEventListener("mouseup", togglePressed2);
     };
 
     return () => {
-      /*не забываем обработчики удалять*/
+
       window.removeEventListener("mousemove", onMouseMove2);
       window.removeEventListener("mouseup", togglePressed2);
     };
   }, [position2, pressed2]);
 
-  /*ваш mousemove*/
+
   const onMouseMove2 = (event) => {
     const x = position2.x + event.movementX;
     const y = position2.y + event.movementY;
     setPosition2({ x, y });
     localStorage.setItem('pos2', JSON.stringify({x, y}));
   };
-  /*переключение нажатия*/
+
   const togglePressed2 = () => {
     setPressed2((prev) => !prev);
   };
@@ -431,8 +429,8 @@ useEffect(() => {
 };
 
 
-    // БОРДЕР БЛОКА 
-    
+    // БОРДЕР БЛОКА + localStorage //
+    /////////////////////////////////
     let saveBorderColorDiv3 = localStorage.getItem("BorderColorDiv3");
     const [MeaningSnumber2, setMeaningS2] = useState(saveBorderColorDiv3 || "#ffffff");
     const setLocalStorageBC3 = (value) => {
@@ -449,7 +447,8 @@ useEffect(() => {
     const inputX2 = useRef(); const editItemX2 = () => { inputX2.current.select(); };
     const inputY2 = useRef(); const editItemY2 = () => { inputY2.current.select(); };
 
-    // ПРИСВАИВАНИЯ ПО W
+    // ПРИСВАИВАНИЯ ПО W + localStorage //
+    //////////////////////////////////////
     let saveWidthDiv3 = localStorage.getItem("WidthDiv3");
     const [MeaningWnumber2, setMeaningW2] = useState(saveWidthDiv3 || 450);
     const setLocalStorageW3 = (value) => {
@@ -462,7 +461,8 @@ useEffect(() => {
     };
     const inputW2 = useRef(); const editItemW2 = () => { inputW2.current.select(); };
     
-    // ПРИСВАИВАНИЯ ПО H
+    // ПРИСВАИВАНИЯ ПО H + localStorage //
+    /////////////////////////////////////
     let saveHeightDiv3 = localStorage.getItem("HeightDiv3");
     const [MeaningHnumber2, setMeaningH2] = useState(saveHeightDiv3 || 280);
     const setLocalStorageH3 = (value) => {
@@ -475,7 +475,8 @@ useEffect(() => {
     };
     const inputH2 = useRef(); const editItemH2 = () => { inputH2.current.select(); };
     
-    // ПРИСВАИВАНИЯ ПО R
+    // ПРИСВАИВАНИЯ ПО R + localStorage //
+    /////////////////////////////////////
     let saveRotateDiv3 = localStorage.getItem("RotateDiv3");
     const [MeaningRnumber2, setMeaningR2] = useState(saveRotateDiv3 || 0);
     const setLocalStorageR3 = (value) => {
@@ -488,7 +489,8 @@ useEffect(() => {
     };
     const inputR2 = useRef(); const editItemR2 = () => { inputR2.current.select(); };
     
-    // ПРИСВАИВАНИЯ ПО BR
+    // ПРИСВАИВАНИЯ ПО BR + localStorage //
+    //////////////////////////////////////
     let saveBorderRadiusDiv3 = localStorage.getItem("BorderRadiusDiv3");
     const [MeaningBRnumber2, setMeaningBR2] = useState(saveBorderRadiusDiv3 || 0);
     const setLocalStorageBR3 = (value) => {
@@ -501,8 +503,8 @@ useEffect(() => {
     };
     const inputBR2 = useRef(); const editItemBR2 = () => { inputBR2.current.select(); };
     
-    // ПРИСВАИВАНИЯ ПО PX
-    
+    // ПРИСВАИВАНИЯ ПО PX + localStorage //
+    //////////////////////////////////////
     let saveBorderDiv3 = localStorage.getItem("BorderDiv3");
     const [MeaningPXnumber2, setMeaningPX2] = useState(saveBorderDiv3 || 0);
     const setLocalStoragePX3 = (value) => {
