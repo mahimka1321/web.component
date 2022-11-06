@@ -1,0 +1,78 @@
+
+$colorText: #fff;
+$colorText-2: #4AFF93;
+$colorText-3: #2b2b2b;
+
+$BackgroundColor-1: #fff;
+$BackgroundColor-2: #4AFF93;
+$BackgroundColor-3: rgba(255, 255, 255, 0.5);
+
+$BorderColor-1: #fff;
+$BorderColor-2: #4AFF93;
+$BorderColor-3: rgba(255, 255, 255, 0.5);  
+$BorderColor-4: #2b2b2b;  
+
+body { background: #343434;}
+
+///////////
+// Home //
+//////////
+
+.logo-name { color: $colorText; }
+.container-tx-0 { color: $colorText; }
+.start-tx { color: $colorText; }
+.logo-name > span { color: $colorText-2; }
+
+.App { background: $colorText-3; box-shadow: 0px 0px 20px 5px rgba(112, 112, 112, 0.25); }
+.btn-st-0 { color: #000000; background: $BackgroundColor-2; }
+
+///////////////////
+/// leftColumn ////
+//////////////////
+
+.txt_info-column { color: $colorText; }
+.txt_name-ct { color: $colorText-3; }
+.txt-t { color: $colorText; }
+.input-controls::placeholder { color: $colorText; }
+.meaning_txt-x{ color: $colorText; }
+.container-stoke { color: $colorText; }
+.container-color { color: $colorText; }
+.button__swap-button { color: $colorText; }
+.name-color { color: $colorText-3 }
+.contauner_name-ct { background: $BackgroundColor-2; } 
+.check_code { background: $BorderColor-4; }
+.meaning-cl::after { background:$BackgroundColor-3; }
+.meaning-cl::before { background:$BackgroundColor-3; }
+.box-color { background: $BackgroundColor-1; }
+.container-color::after { background:$BackgroundColor-3; }
+.container-stoke::after { background:$BackgroundColor-3; } 
+.btn-swap:hover { background: #1A1919; }
+
+.input-controls { border:0.01vw solid $BorderColor-4; }
+.input-controls:hover { border:0.01vw solid #121212; }
+
+.dropdown-content::-webkit-scrollbar-thumb { border: 0.01vw solid #2b2b2b7d; }
+.item::-webkit-scrollbar-thumb { border: 0.01vw solid #ffffff50; }
+.container_main-component::-webkit-scrollbar-thumb { border: 0.01vw solid #2b2b2b7d; }
+.info-com-left::-webkit-scrollbar-thumb { border: 0.01vw solid $BorderColor-1; }
+input[type=number]::-webkit-inner-spin-button::before, 
+input[type=number]::-webkit-inner-spin-button::after { border-bottom: 10px solid #777; }
+
+.column-cl { background: $BorderColor-4; box-shadow: 0.6vw 3vw 1vw rgb(0 0 0 / 25%); }
+.input-controls { outline: #000000; border: 0.01vw solid $BorderColor-4; color: #fff; }
+
+.download_code { background: $BorderColor-2; color: $colorText-3; }
+.column_swap { background: #282828; border-right: 0.01vw solid $BorderColor-3; }
+.btn-swap { border: none; background: $colorText-3; border-bottom: 0.01vw solid $BorderColor-3; }
+.check_code { color: $colorText-2; border-color:  $BorderColor-2; }
+
+////////////////////
+/// RightColumn ////
+////////////////////
+
+.btn-settings { color: $colorText; border-bottom: 0.01vw solid $BorderColor-3; }
+.info-com-right { border-left: 0.01vw solid $BorderColor-3; }
+.btn-settings:hover .svg-settings { fill: $colorText-3; }
+
+.score-txt-content::-webkit-scrollbar-thumb { border: 0.01vw solid $BorderColor-1; }
+
