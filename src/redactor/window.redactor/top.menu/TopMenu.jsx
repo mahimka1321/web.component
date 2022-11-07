@@ -177,7 +177,7 @@ document.addEventListener('keydown', function(event){
 */
 
 window.addEventListener('keydown', function(event){
-    if(event.code == 'KeyS' && event.ctrlKey && event.shiftKey){ setPos({ x: 0, y: 0, scale: 1 })};
+    if(event.code == 'KeyS' && event.ctrlKey && event.shiftKey){ setPos({scale: 1 })};
 });
 
 if(pop >= 1){ pop = -1 }; 

@@ -536,61 +536,72 @@ useEffect(() => {
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-    let iui = 1; let [pop, setPop] = useState(0); if (pop == 1) { iui = 0 };
+let iui = 1; let [pop, setPop] = useState(0); if (pop == 1) { iui = 0 };
 
-    const [pos, setPos] = useState({/*x: 0, y: 0,*/ scale: 1}); 
-    const [scroller, setScroller] = useState(0);
-    const onScroll = (e) => { 
-        if (scroller >= 1) { 
-            let delta = e.deltaY * -0.0005; 
-            let newScale = pos.scale + delta; 
-        // const ratio = 1 - newScale / pos.scale;
-            setPos({
-                scale: newScale,
-               // x: pos.x + (e.clientX + pos.x) * ratio,
-               // y: pos.y + (e.clientY + pos.y) * ratio
-              });
-        };
+
+
+let storedNames = JSON.parse(localStorage.getItem("pos"));
+
+const [pos, setPos] = useState(storedNames || {scale: 1});
+const [scroller, setScroller] = useState(0);
+
+localStorage.setItem("pos", JSON.stringify(pos));
+
+const onScroll = (e) => { 
+    if (scroller >= 1) { 
+
+        let delta = e.deltaY * -0.0005; 
+        let newScale = pos.scale + delta; 
+        setPos({
+            scale: newScale
+        });
+    };
+};
+
+let sizeMap = {
+    transform: `scale(${pos.scale})`,
+    display: `flex`
 };
 
 
-        let saveColorSvg1 = localStorage.getItem("ColorSvg1");
-        let [state4, updateState4] = useState(saveColorSvg1 || "#ffffff");
-        const setLocalStorageCSvg1 = (value) => {
-            localStorage.setItem("ColorSvg1", value);
-          };
+    let saveColorSvg1 = localStorage.getItem("ColorSvg1");
+    let [state4, updateState4] = useState(saveColorSvg1 || "#ffffff");
+    const setLocalStorageCSvg1 = (value) => {
+        localStorage.setItem("ColorSvg1", value);
+    };
         
-        const handleInput4 = (e) => {
-            updateState4(e.target.value);
-            setLocalStorageCSvg1(e.target.value);
-        };
+    const handleInput4 = (e) => {
+        updateState4(e.target.value);
+        setLocalStorageCSvg1(e.target.value);
+    };
 
-        let saveSizeSvg1 = localStorage.getItem("SizeSvg1");
-        const [SvgControl, setSvgControl] = useState(saveSizeSvg1 || 20);
-        const setLocalStorageSSvg1 = (value) => {
-            localStorage.setItem("SizeSvg1", value);
-          };
+    let saveSizeSvg1 = localStorage.getItem("SizeSvg1");
+    const [SvgControl, setSvgControl] = useState(saveSizeSvg1 || 20);
+    const setLocalStorageSSvg1 = (value) => {
+        localStorage.setItem("SizeSvg1", value);
+    };
         
-        const onChangeSvg = (e) => {
-            setSvgControl(e.target.value);
-            setLocalStorageSSvg1(e.target.value);
-        };
-        const inputSvg = useRef(); const editItemSvg = () => { inputSvg.current.select(); };
+    const onChangeSvg = (e) => {
+        setSvgControl(e.target.value);
+        setLocalStorageSSvg1(e.target.value);
+    };
+    const inputSvg = useRef(); const editItemSvg = () => { inputSvg.current.select(); };
 
-        let svg = {
-            width: `${SvgControl}px`,
-            height: 'auto'
-        };
+    let svg = {
+        width: `${SvgControl}px`,
+        height: 'auto'
+    };
         
-
-        let svgColor = {
-            fill: `${state4}`,
-        };
+    let svgColor = {
+        fill: `${state4}`,
+    };
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// ВЫВОД НА  ФРЕЙМ /////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-    let [btnNeE, setBtnNeE] = useState(1);
+let storageBtn = JSON.parse(localStorage.getItem("btnNeE"));
+    let [btnNeE, setBtnNeE] = useState(storageBtn || 1);
+    localStorage.setItem("btnNeE", JSON.stringify(btnNeE));
 /////////////////////////////////////////////////////////////////////////////////////////////
     let [btnNeE1, setbtnNeE1] = useState();
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -604,7 +615,6 @@ useEffect(() => {
     }; if (btnNeE == 1) {
         let e4r = <svg style={svg} className="svt_t" width="14" height="24" viewBox="0 0 14 24" fill="none"><path style={svgColor} d="M13.0607 13.0607C13.6464 12.4749 13.6464 11.5251 13.0607 10.9393L3.51472 1.3934C2.92893 0.807611 1.97919 0.807611 1.3934 1.3934C0.807611 1.97919 0.807611 2.92893 1.3934 3.51472L9.87868 12L1.3934 20.4853C0.807611 21.0711 0.807611 22.0208 1.3934 22.6066C1.97919 23.1924 2.92893 23.1924 3.51472 22.6066L13.0607 13.0607ZM10 13.5H12V10.5H10V13.5Z"/></svg>
         btnNeE1 = e4r;
-
 /////////////////////////////////////////////////////////////////////////////////////////////
         let e4r1 = 
         `<svg class="svg" width="14" height="24" viewBox="0 0 14 24" fill="none">
@@ -667,7 +677,7 @@ useEffect(() => {
                 />
             </svg>`;
         btnNeEPsevdo1 = e4r1;
-    } ;
+    };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -887,8 +897,26 @@ return (
             setPressed={setPressed} pressed={pressed} setPosition={setPosition} position={position}
             setPop={setPop} pop={pop} setScroller={setScroller} scroller={scroller} setPos={setPos}
         />
+        <p
+        style={
+            {
+                position: 'absolute',
+                width: '79px',
+                height: '25px',
+                overflow: 'hidden',
+                top: '0px',
+                fontSize: '20px',
+                fontWeight: 'bold',
+                right: '400px',
+                color: '#fff',
+                zIndex: '5',
+                display: 'flex'
+            }
+        } 
+        ><span>size:&ensp;</span>{pos.scale}</p>
         <Canvas
             setPressed={setPressed} styles={styles} onMouseMove={onMouseMove} togglePressed={togglePressed}
+            sizeMap={sizeMap}
 
             svg={svg}
 
@@ -903,7 +931,7 @@ return (
         
         <RightColumn
             plusClick1={plusClick1} plusClick2={plusClick2} plusClick3={plusClick3}
-            handleInput4={handleInput4} state4={state4}
+            handleInput4={handleInput4} state4={state4} btnNeE={btnNeE}
         />
     </div>
 );};

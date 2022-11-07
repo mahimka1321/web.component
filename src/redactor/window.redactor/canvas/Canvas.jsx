@@ -6,6 +6,8 @@ function Canvas({setPressed,styles,onMouseMove,iframe,pos,onScroll, styles2 ,
                  setPressed2,onMouseMove2, styles3,svg, togglePressed,
 
                  pressed, pressed1, pressed2,
+
+                 sizeMap,
     }) {
 
     let meaningCl = document.getElementById("meaningCl");
@@ -50,10 +52,7 @@ function Canvas({setPressed,styles,onMouseMove,iframe,pos,onScroll, styles2 ,
                     <div className='container-slider'>
                         <div
                         onWheelCapture={onScroll}
-                        style={{
-                            transform: `scale(${pos.scale})`,
-                            display: 'flex'
-                        }}
+                        style={sizeMap}
                         >
                             {/* тест див присваивание стилей от левой колонке */}
                             {/*//////////////////////////////////////*/}
