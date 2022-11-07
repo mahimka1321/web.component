@@ -540,12 +540,12 @@ let iui = 1; let [pop, setPop] = useState(0); if (pop == 1) { iui = 0 };
 
 
 
-let storedNames = JSON.parse(localStorage.getItem("pos"));
+let storedNames = JSON.parse(localStorage.getItem("posZ"));
 
 const [pos, setPos] = useState(storedNames || {scale: 1});
 const [scroller, setScroller] = useState(0);
 
-localStorage.setItem("pos", JSON.stringify(pos));
+localStorage.setItem("posZ", JSON.stringify(pos));
 
 const onScroll = (e) => { 
     if (scroller >= 1) { 

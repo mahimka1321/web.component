@@ -9,9 +9,9 @@ function RightColumn(props, handleInput4, state4) {
 // let [btnNeEr, setBtnNeEr] = useState(storageBtnEr || 1)
 // localStorage.setItem("btnNeEr", JSON.stringify(btnNeEr));
 
-let storageBtnEr = JSON.parse(localStorage.getItem("schetRtM"));
-let [schetRtM, setSchetRtM ] = useState(storageBtnEr || 1)
-localStorage.setItem("schetRtM", JSON.stringify(schetRtM));
+// let storageBtnEr = JSON.parse(localStorage.getItem("schetRtM"));
+// let [schetRtM, setSchetRtM ] = useState(storageBtnEr || 1)
+// localStorage.setItem("schetRtM", JSON.stringify(schetRtM));
 
 
 useEffect(() => {
@@ -31,8 +31,8 @@ useEffect(() => {
   let txtSettingsControl3 = document.getElementById("txtSettingsControl3")
 
 btnSettingsControl1.addEventListener('click', function(){
-  setSchetRtM(schetRtM = 1)
-  if(schetRtM == 1){
+ // setSchetRtM(schetRtM = 1)
+ // if(schetRtM == 1){
     btnSettingsControl3.classList.remove('btn_settings-active')
     svgSettingsControl3.classList.remove('svg__settings_control-active')
     svgSettings3.classList.remove('svg_settings-active')
@@ -47,12 +47,12 @@ btnSettingsControl1.addEventListener('click', function(){
     svgSettingsControl1.classList.add('svg__settings_control-active')
     svgSettings1.classList.add('svg_settings-active')
     txtSettingsControl1.classList.add('txt_settings-active')
-  }
+//  }
 })
 
 btnSettingsControl2.addEventListener('click', function(){
-  setSchetRtM(schetRtM = 2)
-  if(schetRtM == 2){
+ // setSchetRtM(schetRtM = 2)
+ // if(schetRtM == 2){
     btnSettingsControl1.classList.remove('btn_settings-active')
     svgSettingsControl1.classList.remove('svg__settings_control-active')
     svgSettings1.classList.remove('svg_settings-active')
@@ -67,12 +67,12 @@ btnSettingsControl2.addEventListener('click', function(){
     svgSettingsControl2.classList.add('svg__settings_control-active')
     svgSettings2.classList.add('svg_settings-active')
     txtSettingsControl2.classList.add('txt_settings-active')
-  }
+ // }
 })
 
 btnSettingsControl3.addEventListener('click', function(){
-  setSchetRtM(schetRtM = 2)
-  if(schetRtM == 3){
+ // setSchetRtM(schetRtM = 2)
+ // if(schetRtM == 3){
     btnSettingsControl1.classList.remove('btn_settings-active')
     svgSettingsControl1.classList.remove('svg__settings_control-active')
     svgSettings1.classList.remove('svg_settings-active')
@@ -87,7 +87,7 @@ btnSettingsControl3.addEventListener('click', function(){
     svgSettingsControl3.classList.add('svg__settings_control-active')
     svgSettings3.classList.add('svg_settings-active')
     txtSettingsControl3.classList.add('txt_settings-active')
-  }
+//  }
 })
 }, []);
 
