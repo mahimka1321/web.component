@@ -48,37 +48,35 @@ const [position, setPosition] = useState(() => {
   });
 
 useEffect(() => {
-
     if (pressed && iui != 1) {
-      window.addEventListener("mousemove", onMouseMove);
-      window.addEventListener("mouseup", togglePressed);
+        window.addEventListener("mousemove", onMouseMove);
+        window.addEventListener("mouseup", togglePressed);
     };
 
     return () => {
-
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup", togglePressed);
+        window.removeEventListener("mousemove", onMouseMove);
+        window.removeEventListener("mouseup", togglePressed);
     };
-  }, [position, pressed]);
+    }, [position, pressed]);
 
-  const onMouseMove = (event) => {
-    const x = position.x + event.movementX;
-    const y = position.y + event.movementY;
-    setPosition({ x, y });
-    localStorage.setItem('pos', JSON.stringify({x, y}));
-  };
+    const onMouseMove = (event) => {
+      const x = position.x + event.movementX;
+      const y = position.y + event.movementY;
+      setPosition({ x, y });
+      localStorage.setItem('pos', JSON.stringify({x, y}));
+    };
+  
+    const togglePressed = () => {
+      setPressed((prev) => !prev);
+    };
 
-  const togglePressed = () => {
-    setPressed((prev) => !prev);
-  };
-
-  const handleChange = (e, type) => {
-    setPosition((prev) => {
-      const posNew = { ...prev, [type]: e.target.valueAsNumber }
-      localStorage.setItem('pos', JSON.stringify(posNew))
-      return posNew;
-    });
-};
+    const handleChange = (e, type) => {
+      setPosition((prev) => {
+          const posNew = { ...prev, [type]: e.target.valueAsNumber }
+          localStorage.setItem('pos', JSON.stringify(posNew))
+          return posNew;
+      });
+    };
 
 
     // БЭКГРАУНД БЛОКА + localStorage //
@@ -87,7 +85,7 @@ useEffect(() => {
     let [state, updateState] = useState(saveBackgroundDiv1 || "#4aff93"); 
     const setLocalStorageBG1 = (value) => {
         localStorage.setItem("BackgroundDiv1", value);
-      };
+    };
     
     const handleInput = (e) => {
         updateState(e.target.value);
@@ -103,14 +101,13 @@ useEffect(() => {
         state =  rot
     };
 
-
     // БОРДЕР БЛОКА + localStorage //
     //////////////////////////////////////
     let saveBorderColorDiv1 = localStorage.getItem("BorderColorDiv1");
     const [MeaningSnumber, setMeaningS] = useState(saveBorderColorDiv1 || "#000000");  
     const setLocalStorageBC1 = (value) => {
         localStorage.setItem("BorderColorDiv1", value);
-      };
+    };
     
     const onChangeS = (e) => {
         setMeaningS(e.target.value);
@@ -127,7 +124,7 @@ useEffect(() => {
     let [MeaningWnumber, setMeaningW] = useState(saveWidthDiv1 || 50);
     const setLocalStorageW1 = (value) => {
         localStorage.setItem("WidthDiv1", value);
-      };
+    };
     
     const onChangeW = (e) => {
         setMeaningW(e.target.value);
@@ -141,7 +138,7 @@ useEffect(() => {
     const [MeaningHnumber, setMeaningH] = useState(saveHeightDiv1 || 80);
     const setLocalStorageH1 = (value) => {
         localStorage.setItem("HeightDiv1", value);
-      };
+    };
     
     const onChangeH = (e) => {
         setMeaningH(e.target.value);
@@ -155,7 +152,7 @@ useEffect(() => {
     const [MeaningRnumber, setMeaningR] = useState(saveRotateDiv1 || 0); 
     const setLocalStorageR1 = (value) => {
         localStorage.setItem("RotateDiv1", value);
-      };
+    };
     
     const onChangeR = (e) => {
         setMeaningR(e.target.value);
@@ -169,7 +166,7 @@ useEffect(() => {
     const [MeaningBRnumber, setMeaningBR] = useState(saveBorderRadiusDiv1 || 0); 
     const setLocalStorageBR1 = (value) => {
         localStorage.setItem("BorderRadiusDiv1", value);
-      };
+    };
     
     const onChangeBR = (e) => {
         setMeaningBR(e.target.value);
@@ -183,14 +180,13 @@ useEffect(() => {
     const [MeaningPXnumber, setMeaningPX] = useState(saveBorderDiv1 || 0); 
     const setLocalStoragePX1 = (value) => {
         localStorage.setItem("BorderDiv1", value);
-      };
+    };
     
     const onChangePX = (e) => {
         setMeaningPX(e.target.value);
         setLocalStoragePX1(e.target.value);
     };
     const inputPX = useRef(); const editItemPX = () => { inputPX.current.select(); };
-
 
     // стили дива на холсте 1
     const styles = {
@@ -206,54 +202,52 @@ useEffect(() => {
         zIndex: `10`
     };
 
-
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////////// НАСТРОЙКИ СТРЕЛКИ ВПЕРЕД //////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 // перемещинире по нажатию лкм + localStorage //
 ////////////////////////////////////////////////
-const [pressed1, setPressed1] = useState(false);
-const [position1, setPosition1] = useState(() => {
-    const pos1 = JSON.parse(localStorage.getItem('pos1'));
-    if (pos1 && pos1.hasOwnProperty('x') && pos1.hasOwnProperty('y')) {
-      return pos1;
-    } 
-    return { x: 250, y: -40}
-  });
-
-useEffect(() => {
-
-    if (pressed1 && iui != 1) {
-      window.addEventListener("mousemove", onMouseMove1);
-      window.addEventListener("mouseup", togglePressed1);
-    };
-
-    return () => {
-
-      window.removeEventListener("mousemove", onMouseMove1);
-      window.removeEventListener("mouseup", togglePressed1);
-    };
-  }, [position1, pressed1]);
-
-  const onMouseMove1 = (event) => {
-    const x = position1.x + event.movementX;
-    const y = position1.y + event.movementY;
-    setPosition1({ x, y });
-    localStorage.setItem('pos1', JSON.stringify({x, y}));
-  };
-
-  const togglePressed1 = () => {
-    setPressed1((prev) => !prev);
-  };
-
-  const handleChange1 = (e, type) => {
-    setPosition1((prev) => {
-      const posNew1 = { ...prev, [type]: e.target.valueAsNumber }
-      localStorage.setItem('pos1', JSON.stringify(posNew1))
-      return posNew1;
+    const [pressed1, setPressed1] = useState(false);
+    const [position1, setPosition1] = useState(() => {
+        const pos1 = JSON.parse(localStorage.getItem('pos1'));
+        if (pos1 && pos1.hasOwnProperty('x') && pos1.hasOwnProperty('y')) {
+            return pos1;
+        } 
+        return { x: 250, y: -40}
     });
-};
+
+    useEffect(() => {
+    
+        if (pressed1 && iui != 1) {
+            window.addEventListener("mousemove", onMouseMove1);
+            window.addEventListener("mouseup", togglePressed1);
+        };
+    
+        return () => {
+            window.removeEventListener("mousemove", onMouseMove1);
+            window.removeEventListener("mouseup", togglePressed1);
+        };
+    }, [position1, pressed1]);
+    
+    const onMouseMove1 = (event) => {
+        const x = position1.x + event.movementX;
+        const y = position1.y + event.movementY;
+        setPosition1({ x, y });
+        localStorage.setItem('pos1', JSON.stringify({x, y}));
+    };
+    
+    const togglePressed1 = () => {
+      setPressed1((prev) => !prev);
+    };
+    
+    const handleChange1 = (e, type) => {
+        setPosition1((prev) => {
+            const posNew1 = { ...prev, [type]: e.target.valueAsNumber }
+            localStorage.setItem('pos1', JSON.stringify(posNew1))
+            return posNew1;
+        });
+    };
 
     // БЭКГРАУНД БЛОКА + localStorage //
     //////////////////////////////////////
@@ -261,7 +255,7 @@ useEffect(() => {
     let [state1, updateState1] = useState(saveBackgroundDiv2 || "#80bdff"); 
     const setLocalStorageBG2 = (value) => {
         localStorage.setItem("BackgroundDiv2", value);
-      };
+    };
     
     const handleInput1 = (e) => {
         updateState1(e.target.value);
@@ -269,7 +263,6 @@ useEffect(() => {
     }
 
     let [rot1, setRot1] = useState("none");
-
     let [Irot1, setIrot1] = useState(0);
 
     if(Irot1 != 0) {
@@ -282,7 +275,7 @@ useEffect(() => {
     const [MeaningSnumber1, setMeaningS1] = useState(saveBorderColorDiv2 || "#000000");
     const setLocalStorageBC2 = (value) => {
         localStorage.setItem("BorderColorDiv2", value);
-      };
+    };
     
     const onChangeS1 = (e) => {
         setMeaningS1(e.target.value);
@@ -299,7 +292,7 @@ useEffect(() => {
     const [MeaningWnumber1, setMeaningW1] = useState(saveWidthDiv2 || 50);
     const setLocalStorageW2 = (value) => {
         localStorage.setItem("WidthDiv2", value);
-      };
+    };
     
     const onChangeW1 = (e) => {
         setMeaningW1(e.target.value);
@@ -313,7 +306,7 @@ useEffect(() => {
     const [MeaningHnumber1, setMeaningH1] = useState(saveHeightDiv2 || 80);
     const setLocalStorageH2 = (value) => {
         localStorage.setItem("HeightDiv2", value);
-      };
+    };
     
     const onChangeH1 = (e) => {
         setMeaningH1(e.target.value);
@@ -327,7 +320,7 @@ useEffect(() => {
     const [MeaningRnumber1, setMeaningR1] = useState(saveRotateDiv2 || 0);
     const setLocalStorageR2 = (value) => {
         localStorage.setItem("RotateDiv2", value);
-      };
+    };
     
     const onChangeR1 = (e) => {
         setMeaningR1(e.target.value);
@@ -341,7 +334,7 @@ useEffect(() => {
     const [MeaningBRnumber1, setMeaningBR1] = useState(saveBorderRadiusDiv2 || 0);
     const setLocalStorageBR2 = (value) => {
         localStorage.setItem("BorderRadiusDiv2", value);
-      };
+    };
     
     const onChangeBR1 = (e) => {
         setMeaningBR1(e.target.value);
@@ -355,14 +348,13 @@ useEffect(() => {
     const [MeaningPXnumber1, setMeaningPX1] = useState(saveBorderDiv2 || 0);
     const setLocalStoragePX2 = (value) => {
         localStorage.setItem("BorderDiv2", value);
-      };
+    };
     
     const onChangePX1 = (e) => {
         setMeaningPX1(e.target.value);
         setLocalStoragePX2(e.target.value);
     };
     const inputPX1 = useRef(); const editItemPX1 = () => { inputPX1.current.select(); };
-
 
     // стили дива на холсте 2
     const styles2 = {
@@ -378,55 +370,52 @@ useEffect(() => {
         zIndex: `10`
     };
 
-
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////////// НАСТРОЙКИ СТРЕЛКИ ВПЕРЕД //////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 // перемещинире по нажатию лкм + localStorage //
 ///////////////////////////////////////////////
-const [pressed2, setPressed2] = useState(false);
-const [position2, setPosition2] = useState(() => {
-    const pos2 = JSON.parse(localStorage.getItem('pos2'));
-    if (pos2 && pos2.hasOwnProperty('x') && pos2.hasOwnProperty('y')) {
-      return pos2;
-    } 
-    return { x: -225, y: -140}
-  });
-
-useEffect(() => {
-
-    if (pressed2 && iui != 1) {
-      window.addEventListener("mousemove", onMouseMove2);
-      window.addEventListener("mouseup", togglePressed2);
-    };
-
-    return () => {
-
-      window.removeEventListener("mousemove", onMouseMove2);
-      window.removeEventListener("mouseup", togglePressed2);
-    };
-  }, [position2, pressed2]);
-
-
-  const onMouseMove2 = (event) => {
-    const x = position2.x + event.movementX;
-    const y = position2.y + event.movementY;
-    setPosition2({ x, y });
-    localStorage.setItem('pos2', JSON.stringify({x, y}));
-  };
-
-  const togglePressed2 = () => {
-    setPressed2((prev) => !prev);
-  };
-
-  const handleChange2 = (e, type) => {
-    setPosition2((prev) => {
-      const posNew2 = { ...prev, [type]: e.target.valueAsNumber }
-      localStorage.setItem('pos2', JSON.stringify(posNew2))
-      return posNew2;
+    const [pressed2, setPressed2] = useState(false);
+    const [position2, setPosition2] = useState(() => {
+        const pos2 = JSON.parse(localStorage.getItem('pos2'));
+        if (pos2 && pos2.hasOwnProperty('x') && pos2.hasOwnProperty('y')) {
+            return pos2;
+        } 
+        return { x: -225, y: -140}
     });
-};
+
+    useEffect(() => {
+        if (pressed2 && iui != 1) {
+            window.addEventListener("mousemove", onMouseMove2);
+            window.addEventListener("mouseup", togglePressed2);
+        };
+    
+        return () => {
+            window.removeEventListener("mousemove", onMouseMove2);
+            window.removeEventListener("mouseup", togglePressed2);
+        };
+    }, [position2, pressed2]);
+
+
+    const onMouseMove2 = (event) => {
+        const x = position2.x + event.movementX;
+        const y = position2.y + event.movementY;
+        setPosition2({ x, y });
+        localStorage.setItem('pos2', JSON.stringify({x, y}));
+    };
+
+    const togglePressed2 = () => {
+        setPressed2((prev) => !prev);
+    };
+
+    const handleChange2 = (e, type) => {
+        setPosition2((prev) => {
+            const posNew2 = { ...prev, [type]: e.target.valueAsNumber }
+            localStorage.setItem('pos2', JSON.stringify(posNew2))
+            return posNew2;
+        });
+    };
 
 
     // БОРДЕР БЛОКА + localStorage //
@@ -435,13 +424,12 @@ useEffect(() => {
     const [MeaningSnumber2, setMeaningS2] = useState(saveBorderColorDiv3 || "#ffffff");
     const setLocalStorageBC3 = (value) => {
         localStorage.setItem("BorderColorDiv3", value);
-      };
+    };
     
     const onChangeS2 = (e) => {
         setMeaningS2(e.target.value);
         setLocalStorageBC3(e.target.value);
     };
-
 
     // left X  top Y 
     const inputX2 = useRef(); const editItemX2 = () => { inputX2.current.select(); };
@@ -453,7 +441,7 @@ useEffect(() => {
     const [MeaningWnumber2, setMeaningW2] = useState(saveWidthDiv3 || 450);
     const setLocalStorageW3 = (value) => {
         localStorage.setItem("WidthDiv3", value);
-      };
+    };
     
     const onChangeW2 = (e) => {
         setMeaningW2(e.target.value);
@@ -467,7 +455,7 @@ useEffect(() => {
     const [MeaningHnumber2, setMeaningH2] = useState(saveHeightDiv3 || 280);
     const setLocalStorageH3 = (value) => {
         localStorage.setItem("HeightDiv3", value);
-      };
+    };
     
     const onChangeH2 = (e) => {
         setMeaningH2(e.target.value);
@@ -481,7 +469,7 @@ useEffect(() => {
     const [MeaningRnumber2, setMeaningR2] = useState(saveRotateDiv3 || 0);
     const setLocalStorageR3 = (value) => {
         localStorage.setItem("RotateDiv3", value);
-      };
+    };
     
     const onChangeR2 = (e) => {
         setMeaningR2(e.target.value);
@@ -495,7 +483,7 @@ useEffect(() => {
     const [MeaningBRnumber2, setMeaningBR2] = useState(saveBorderRadiusDiv3 || 0);
     const setLocalStorageBR3 = (value) => {
         localStorage.setItem("BorderRadiusDiv3", value);
-      };
+    };
     
     const onChangeBR2 = (e) => {
         setMeaningBR2(e.target.value);
@@ -509,14 +497,13 @@ useEffect(() => {
     const [MeaningPXnumber2, setMeaningPX2] = useState(saveBorderDiv3 || 0);
     const setLocalStoragePX3 = (value) => {
         localStorage.setItem("BorderDiv3", value);
-      };
+    };
     
     const onChangePX2 = (e) => {
         setMeaningPX2(e.target.value);
         setLocalStoragePX3(e.target.value);
     };
     const inputPX2 = useRef(); const editItemPX2 = () => { inputPX2.current.select(); };
-
 
     // стили дива на холсте 3
     const styles3 = {
@@ -531,38 +518,32 @@ useEffect(() => {
         zIndex: `1`
     };
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-let iui = 1; let [pop, setPop] = useState(0); if (pop == 1) { iui = 0 };
-
-
-
-let storedNames = JSON.parse(localStorage.getItem("posZ"));
-
-const [pos, setPos] = useState(storedNames || {scale: 1});
-const [scroller, setScroller] = useState(0);
-
-localStorage.setItem("posZ", JSON.stringify(pos));
-
-const onScroll = (e) => { 
-    if (scroller >= 1) { 
-
-        let delta = e.deltaY * -0.0005; 
-        let newScale = pos.scale + delta; 
-        setPos({
-            scale: newScale
-        });
+    let iui = 1; let [pop, setPop] = useState(0); if (pop == 1) { iui = 0 };
+    
+    
+    let storedNames = JSON.parse(localStorage.getItem("posZ"));
+    const [pos, setPos] = useState(storedNames || {scale: 1});
+    localStorage.setItem("posZ", JSON.stringify(pos));
+    
+    const [scroller, setScroller] = useState(0);
+    const onScroll = (e) => { 
+        if (scroller >= 1) { 
+            let delta = e.deltaY * -0.0005; 
+            let newScale = pos.scale + delta; 
+            setPos({
+                scale: newScale
+            });
+        };
     };
-};
 
-let sizeMap = {
-    transform: `scale(${pos.scale})`,
-    display: `flex`
-};
-
+    let sizeMap = {
+        transform: `scale(${pos.scale})`,
+        display: `flex`
+    };
 
     let saveColorSvg1 = localStorage.getItem("ColorSvg1");
     let [state4, updateState4] = useState(saveColorSvg1 || "#ffffff");
@@ -599,7 +580,7 @@ let sizeMap = {
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// ВЫВОД НА  ФРЕЙМ /////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-let storageBtn = JSON.parse(localStorage.getItem("btnNeE"));
+    let storageBtn = JSON.parse(localStorage.getItem("btnNeE"));
     let [btnNeE, setBtnNeE] = useState(storageBtn || 1);
     localStorage.setItem("btnNeE", JSON.stringify(btnNeE));
 /////////////////////////////////////////////////////////////////////////////////////////////

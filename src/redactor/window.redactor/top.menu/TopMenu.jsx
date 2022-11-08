@@ -49,13 +49,13 @@ function btn4() {
     if( prom === whatRu || prom === whatEn) {
         localStorage.clear();
         window.location.reload();
+        window.Storage.removeItem("btnNeE");
+        window.Storage.removeItem("posZ");
     }else { alert('Отменено') };
 
     removeMove();
     removeZoom();
 };
-
-
 
 function btn5() {
     let moveBtn2 = document.getElementById("moveBtn2");
@@ -97,10 +97,6 @@ function btn6() {
 function removeMove() { 
     setPop(pop = 0);
 };
-
-
-
-
 
 function removeZoom() { 
     setScroller(scroller = 0);
