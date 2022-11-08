@@ -95,7 +95,9 @@ useEffect(() => {
     // ОТКЛЮЧЕНИЕ bg БЕЗ localStorage //
     //////////////////////////////////////
     let [rot, setRot] = useState("none");
-    let [Irot, setIrot] = useState(0);
+    let storageIrot = JSON.parse(localStorage.getItem("Irot"));
+    let [Irot, setIrot] = useState(storageIrot || 0);
+    localStorage.setItem("Irot", JSON.stringify(Irot));
 
     if(Irot != 0) {
         state =  rot
@@ -263,7 +265,9 @@ useEffect(() => {
     }
 
     let [rot1, setRot1] = useState("none");
-    let [Irot1, setIrot1] = useState(0);
+    let storageIrot1 = JSON.parse(localStorage.getItem("Irot1"));
+    let [Irot1, setIrot1] = useState(storageIrot1 || 0);
+    localStorage.setItem("Irot1", JSON.stringify(Irot1));
 
     if(Irot1 != 0) {
         state1 =  rot1
