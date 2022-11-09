@@ -1,5 +1,5 @@
 
- import React, {useRef} from "react";
+ import React, {useRef, useState} from "react";
  import styled from "styled-components";
 
 // настройка инпута колор пикер
@@ -34,25 +34,52 @@ const inputCP = useRef(); const editItemCP = () => {inputCP.current.select();};
 ) 
 {
 
-    function rpoo1(){
-        let minusBgSt3 = document.getElementById("minusBgSt3")
-        let plusBgSt3 = document.getElementById("plusBgSt3")
-        let boxColorPage3 = document.getElementById("boxColorPage3")
-        minusBgSt3.style.display = "none" 
-        plusBgSt3.classList.remove("tototo")
-        boxColorPage3.classList.add("tototo")
-        setIrot1(Irot1 + 1)
-    }
-    
-    function rpooP1(){
-        let minusBgSt3 = document.getElementById("minusBgSt3")
-        let plusBgSt3 = document.getElementById("plusBgSt3")
-        let boxColorPage3 = document.getElementById("boxColorPage3")
-        minusBgSt3.style.display = "block" 
-        plusBgSt3.classList.add("tototo")
-        boxColorPage3.classList.remove("tototo")
-        setIrot1(Irot1 - 1)
-    }
+    let controlBgArrow1 = JSON.parse(localStorage.getItem("BgArrow1"));
+    let [visibleInvisibleBgArrow1, setVisibleInvisibleBgArrow1] = useState(controlBgArrow1 || 0);
+    localStorage.setItem("BgArrow1", JSON.stringify(visibleInvisibleBgArrow1));
+
+    // visible // invisible // bg arrow
+    let invisibleArrow = "none";
+    let visibleArrow = "block";
+
+    let acceptsPosition1 = "";
+    let acceptsPosition2 = "";
+
+    if(visibleInvisibleBgArrow1 == 0){
+        acceptsPosition1 = visibleArrow;
+        acceptsPosition2 = invisibleArrow;
+    };
+    if(visibleInvisibleBgArrow1 == 1){
+        acceptsPosition2 = visibleArrow;
+        acceptsPosition1 = invisibleArrow;
+    };
+
+    function controlBgArrow3(){
+        setIrot1(Irot1 = 1);
+        setVisibleInvisibleBgArrow1(visibleInvisibleBgArrow1 = 1); 
+    };
+    function controlBgArrow4(){
+        setIrot1(Irot1 = 0);
+        setVisibleInvisibleBgArrow1(visibleInvisibleBgArrow1 = 0);
+     };
+
+    let bgArrow1 = {
+        display: `${acceptsPosition1}`,
+        margin: '0',
+        padding: '0',
+        marginTop: '-7px',
+        marginLeft: '20px',
+        fontSize: '24px'
+    };
+
+    let bgArrow2 = {
+        display: `${acceptsPosition2}`,
+        margin: '0',
+        padding: '0',
+        marginTop: '-7px',
+        marginLeft: '20px',
+        fontSize: '24px'
+    };
 
      return (
         <div className='meaning-cl rrr' id='meaningCl1'>
@@ -168,26 +195,14 @@ const inputCP = useRef(); const editItemCP = () => {inputCP.current.select();};
                         <ColorPicker onChange={handleInput1} value={state1} />
                         <p
                         className="control_bg-items"
-                        style={{
-                            margin: '0',
-                            padding: '0',
-                            marginTop: '-7px',
-                            marginLeft: '20px',
-                            fontSize: '24px'
-                        }}
-                         onClick={rpoo1}
+                        style={bgArrow1}
+                         onClick={controlBgArrow3}
                          id="minusBgSt3"
                          >-</p>
                         <p
                         className="tototo control_bg-items"
-                        style={{
-                            margin: '0',
-                            padding: '0',
-                            marginTop: '-7px',
-                            marginLeft: '20px',
-                            fontSize: '24px'
-                        }}
-                         onClick={rpooP1}
+                        style={bgArrow2}
+                         onClick={controlBgArrow4}
                          id="plusBgSt3"
                          >+</p>
                     </div>

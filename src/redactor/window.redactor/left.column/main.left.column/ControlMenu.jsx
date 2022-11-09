@@ -31,67 +31,56 @@ const inputCP = useRef(); const editItemCP = () => {inputCP.current.select();};
 
         handleInput4, state4, SvgControl, onChangeSvg,editItemSvg,inputSvg,
 
-
     }
   ) {
 
+    let controlBgArrow = JSON.parse(localStorage.getItem("BgArrow"));
+    let [visibleInvisibleBgArrow, setVisibleInvisibleBgArrow] = useState(controlBgArrow || 0);
+    localStorage.setItem("BgArrow", JSON.stringify(visibleInvisibleBgArrow));
 
+    // visible // invisible // bg arrow
+    let invisibleArrow = "none";
+    let visibleArrow = "block";
 
+    let acceptsPosition1 = "";
+    let acceptsPosition2 = "";
 
+    if(visibleInvisibleBgArrow == 0){
+        acceptsPosition1 = visibleArrow;
+        acceptsPosition2 = invisibleArrow;
+    };
+    if(visibleInvisibleBgArrow == 1){
+        acceptsPosition2 = visibleArrow;
+        acceptsPosition1 = invisibleArrow;
+    };
 
+    function controlBgArrow1(){
+        setIrot(Irot = 1);
+        setVisibleInvisibleBgArrow(visibleInvisibleBgArrow = 1); 
+    };
+    function controlBgArrow2(){
+        setIrot(Irot = 0);
+        setVisibleInvisibleBgArrow(visibleInvisibleBgArrow = 0);
+     };
 
-
-
-
-
-    let controlRpoo = JSON.parse(localStorage.getItem("controlRpoo"));
-    let [controlRpoo00, setControlRpoo00] = useState(controlRpoo || 0)
-    localStorage.setItem("controlRpoo", JSON.stringify(controlRpoo00));
-
-
-    let [rpoo02 , setRpoo02] =useState("none")
-    let [rpoo03 , setRpoo03] =useState("block")
-
-    let [rpoo01 , setRpoo01] =useState("")
-    let [rpoo011 , setRpoo011] =useState("")
-
-    if(controlRpoo00 == 0){
-        rpoo01 = rpoo03
-        rpoo011 = rpoo02
-    }
-    if(controlRpoo00 == 1){
-        rpoo011 = rpoo03
-        rpoo01 = rpoo02
-    }
-
-    function rpoo(){
-        setIrot(Irot = 1)      
-        setControlRpoo00(controlRpoo00 = 1)  
-    }
-    function rpooP(){
-        setIrot(Irot = 0)
-        setControlRpoo00(controlRpoo00 = 0)  
-     }
-
-     
-
-    let rpoo1 = {
-        display: `${rpoo01}`,
+    let bgArrow1 = {
+        display: `${acceptsPosition1}`,
         margin: '0',
         padding: '0',
         marginTop: '-7px',
         marginLeft: '20px',
         fontSize: '24px'
-    }
+    };
 
-    let rpoo2 = {
-        display: `${rpoo011}`,
+    let bgArrow2 = {
+        display: `${acceptsPosition2}`,
         margin: '0',
         padding: '0',
         marginTop: '-7px',
         marginLeft: '20px',
         fontSize: '24px'
-    }
+    };
+
      return (
         <div className='meaning-cl control_menu' id='meaningCl'>
             <div className='input_con'>
@@ -206,15 +195,15 @@ const inputCP = useRef(); const editItemCP = () => {inputCP.current.select();};
                         <ColorPicker onChange={handleInput} value={state}/>
                         <p
                         className="control_bg-items"
-                        style={rpoo1}
-                         onClick={rpoo}
+                        style={bgArrow1}
+                         onClick={controlBgArrow1}
 
                          id="minusBgSt1"
                          >-</p>
                         <p
                         className="tototo control_bg-items"
-                        style={rpoo2}
-                         onClick={rpooP}
+                        style={bgArrow2}
+                         onClick={controlBgArrow2}
                          id="plusBgSt1"
                          >+</p>
                     </div>

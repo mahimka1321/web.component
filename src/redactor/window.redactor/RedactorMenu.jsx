@@ -46,7 +46,6 @@ return (
             animation: "1s Redactiractive"
         }}
     >    
-
         <PopupCode 
             htmlContainer={htmlContainer} cssSlider={cssSlider} jsContainer={jsContainer} 
             position={position} handleChange={handleChange} editItemX={editItemX} 
@@ -119,16 +118,16 @@ return (
                 zIndex: '5',
                 display: 'flex',
                 textAlign: 'center',
+                justifyContent: 'center',
                 borderWidth: '0 0.01vw 0.01vw 0.01vw',
                 borderStyle: 'solid',
                 borderColor: 'rgba(255, 255, 255, 0.5)'
             }
         } 
-        type="text" 
+        type="submit" 
         min="25" 
         max="900"  
         value={Math.round(pos.scale * 1000) / 10 + ` %`}
-        onChange={pos.scale}
         />
         <Canvas
             setPressed={setPressed} styles={styles} onMouseMove={onMouseMove} togglePressed={togglePressed}
