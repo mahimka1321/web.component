@@ -644,14 +644,17 @@ useEffect(() => {
 
 // Вывод html разметки  ////////
 let htmlContainer =
-        `
+        `<!-- главный контейнер -->
 <div class="сontainer">
+        <!-- стрелка назад -->
         <div class="box btn-n" id="bntL">
             <div class="strelka">
                 ${btnNeEPsevdo1}
             </div>
         </div>
+            <!-- контейнер фото -->
             <img id="photos" class="photos" src="https://content1.rozetka.com.ua/goods/images/original/94786788.jpg"/>
+        <!-- стрелка вперед -->
         <div class="box1 btn-n" id="bntR">
             <div class="strelka">
                 ${btnNeEPsevdo1}
@@ -661,8 +664,7 @@ let htmlContainer =
 
 // Вывод css разметки ///////////////////////////
 let cssSlider =
-        `
-.сontainer {
+        `.сontainer {
     position: absolute;
     top: 50%; /* изменять расположение тут */
     left: 50%;
@@ -746,8 +748,7 @@ let cssSlider =
 
 // Вывод js разметки //////////////
 let jsContainer = 
-        `
-let slider_cfg = {
+        `let slider_cfg = {
     1: "https://phonoteka.org/uploads/posts/2021-06/1624303226_38-phonoteka_org-p-oboi-dlya-makbuka-krasivo-42.jpg",
     2: "https://mobimg.b-cdn.net/v3/fetch/9e/9ef75ed161ec520413d664a40dc450af.jpeg",
     3: "https://vsegda-pomnim.com/uploads/posts/2022-03/1648674100_11-vsegda-pomnim-com-p-krasivie-gornie-reki-foto-11.jpg",

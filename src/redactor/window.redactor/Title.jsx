@@ -2,7 +2,11 @@
 import React, {useEffect, useRef} from "react";
 import Hoocks from "./Hoocks"
 
+
 function Title() {
+
+    document.title = "Page - Workspace"
+
     const {
         htmlContainer, cssSlider, jsContainer
     }  = Hoocks();

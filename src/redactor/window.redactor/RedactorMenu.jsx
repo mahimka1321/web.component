@@ -7,6 +7,8 @@ import PopupCode from "./PopupCode"
 import Canvas from "./canvas/Canvas"
 import Hoocks from "./Hoocks"
 
+import Hint from "./Hint"
+
 import "./left.column/main.left.column/leftColumn.scss"
 import "./left.column/main.left.column/сontainerAtwSwap.scss"
 import "./right.column/main.right.column/rightColumn.scss"
@@ -46,6 +48,7 @@ return (
             animation: "1s Redactiractive"
         }}
     >    
+    <Hint />
         <PopupCode 
             htmlContainer={htmlContainer} cssSlider={cssSlider} jsContainer={jsContainer} 
             position={position} handleChange={handleChange} editItemX={editItemX} 

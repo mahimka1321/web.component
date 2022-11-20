@@ -18,12 +18,20 @@ body { background: #343434;}
 // Home //
 //////////
 
-.logo-name { color: $colorText; }
+.logo-name > a { color: $colorText; text-decoration: none; }
+.about_logo-name > a { color: $colorText; text-decoration: none; }
+.about_logo-name { color: $colorText; text-decoration: none; }
+.works_logo-name > a { color: $colorText; text-decoration: none; }
+.works_logo-name { color: $colorText; text-decoration: none; }
 .container-tx-0 { color: $colorText; }
 .start-tx { color: $colorText; }
-.logo-name > span { color: $colorText-2; }
+.logo-name span { color: $colorText-2; }
+.about_logo-name span { color: $colorText-2; }
+.works_logo-name span { color: $colorText-2; }
 
 .App { background: $colorText-3; box-shadow: 0px 0px 20px 5px rgba(112, 112, 112, 0.25); }
+.about_App { background: $colorText-3; box-shadow: 0px 0px 20px 5px rgba(112, 112, 112, 0.25); }
+.works_App { background: $colorText-3; box-shadow: 0px 0px 20px 5px rgba(112, 112, 112, 0.25); }
 .btn-st-0 { color: #000000; background: $BackgroundColor-2; }
 
 ///////////////////

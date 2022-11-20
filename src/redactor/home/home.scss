@@ -3,6 +3,10 @@
   --file-grid-tile-min-width: 872px;
 }
 
+* {
+  cursor: url(./img/cursor.png), auto;
+}
+
 body 
 {
   margin: 0;
@@ -13,7 +17,7 @@ body
   -moz-osx-font-smoothing: grayscale;
   overflow-y: overlay;
   overflow-x: hidden;
-  cursor: url(./img/cursor.png), auto;
+
   &::-webkit-scrollbar 
   {
     width: 0.6vw;    
@@ -94,6 +98,12 @@ code
       font-size: 20px;
       font-weight: 700;
       line-height: 5px;
+      a
+      {
+        text-decoration: none;
+        cursor: url(./img/pointer.png), auto;
+        span {cursor: url(./img/pointer.png), auto; }
+      }
     }
     .ul-container
     {
@@ -118,8 +128,14 @@ code
             .continer_tx-nav
             {
               cursor: url(./img/pointer.png), auto;
+              transition: 0.4s;
               span{
                 color: #4AFF93;
+                transition: 0.4s;
+              }
+              &:hover > span{
+                color: #fff;
+                transition: 0.6s;
               }
             }
           }
@@ -132,7 +148,8 @@ code
 .container
 {
   display: block;
-  width: 1160px;
+  max-width: 1160px;
+  width: 100%;
   margin-top: 70px;
   margin-left: 54px;
   .container-in-0
@@ -252,4 +269,3 @@ code
   background: #2b2b2b;
   }
 }
-  

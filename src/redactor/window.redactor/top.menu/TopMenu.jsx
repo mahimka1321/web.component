@@ -245,7 +245,7 @@ if(scroller >= 1){ scroller = -1 };
             <div className="info_btn-move active_btn-5"><p>Rel. Zoom <span>Z</span></p></div>
             {/* кнопка станрт */}
             <button onClick={btn6} className="btn_top-memu move_btn-6 pointer" style={{position:'absolute', top:'0', right:'0'}}>
-                <Link className="link-btn pointer" to="/Workspace/title" target="_blank">
+                <Link className="link-btn pointer" to="/workspace/prototype" target="mywindow">
                     <svg className="svt_t_M0 pointer" style={{position:'absolute', top:'13px', right:'11px'}} viewBox="0 0 19 24" fill="none">
                         <path d="M17.1264 11.1848C17.6874 11.5835 17.6874 12.4165 17.1264 12.8152L17.7057 13.6303L17.1264 12.8152L3.07924 22.7969C2.41713 23.2674 1.5 22.794 1.5 21.9817V2.01827C1.5 1.20603 2.41712 0.73263 3.07924 1.20312L17.1264 11.1848Z" stroke="white" strokeWidth="2"/>
                     </svg>

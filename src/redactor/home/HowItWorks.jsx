@@ -1,23 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import imgOne from './img/ph-0.png'; 
-import imgTwo from './img/ph-1.png';
-import imgFree from './img/ph-2.png';
-import VideoBox from './video/video.02.mp4';
 
-import './home.scss';
+import './howItWorks.scss';
 import '../animatic/animation.scss';
 import '../color.scss';
 
-function Home() {
+import photo_1 from './img/photo_page_1/photo_1.1.png';
+import photo_2 from './img/photo_page_1/photo_1.2.png';
+
+function HowItWorks() {
   return (
-    <div className="disableZoom" id='disableZoom'>
+    <div className="works_disableZoom" id='disableZoom'>
       {/* главный контейнер */}
-      <div className="App">
+      <div className="works_App">
         {/* шапка */}
-        <header className="header-app">
-          <div className="logo-container">
+        <header className="works_header-app">
+          <div className="works_logo-container">
           <svg width="59" height="59" viewBox="0 0 59 59" fill="none">
               <g clipPath="url(#clip0_544_14)">
                   <path d="M52.0126 27.5035C52.0126 27.5035 49.0422 -4.61411 20.4474 17.4536C-8.15232 39.5098 12.9679 46.9027 29.482 45.4813C46.2762 44.0514 52.7061 41.6192 52.0126 27.5035Z" fill="url(#paint0_linear_544_14)"/>
@@ -48,114 +47,59 @@ function Home() {
                   </clipPath>
               </defs>
           </svg>
-            <h1 className="logo-name">
-              <Link to="/"><span>Web</span> Component</Link>
+            <h1 className="works_logo-name">
+            <Link to="/"><span>Web</span> Component</Link>
             </h1>
-              <ul className='ul-container'>
-                <li className='btn-con'>
-                  <button className='ul_li-btn'>
-                    <Link className='link-nav' to="/about">
-                      <p className='continer_tx-nav animatic_nav-1'><span>о</span> проекте</p>
+              <ul className='works_ul-container'>
+                <li className='works_btn-con'>
+                  <button className='works_ul_li-btn'>
+                    <Link className='works_link-nav' to="/about">
+                      <p className='works_continer_tx-nav animatic_nav-1'><span>о</span> проекте</p>
                     </Link>
                   </button>
                 </li>
-                <li className='btn-con'>
-                  <button className='ul_li-btn'>               
-                    <Link className='link-nav'>
-                      <p className='continer_tx-nav animatic_nav-2'><span>к</span>то мы?</p>
+                <li className='works_btn-con'>
+                  <button className='works_ul_li-btn'>
+                    <Link className='works_link-nav'>
+                      <p className='works_continer_tx-nav animatic_nav-2'><span>к</span>то мы?</p>
                     </Link>
                   </button>
                 </li>
-                <li className='btn-con'>
-                  <button className='ul_li-btn'>
-                    <Link className='link-nav' to="/works">
-                      <p className='continer_tx-nav animatic_nav-3'><span>к</span>ак это работает?</p>
+                <li className='works_btn-con'>
+                  <button className='works_ul_li-btn'>
+                    <Link className='works_link-nav' to="/works">
+                      <p className='works_continer_tx-nav animatic_nav-3'><span>к</span>ак это работает?</p>
                     </Link>
                   </button>
                 </li>
               </ul>
           </div>
         </header>
-        {/* контейнер с контентом */}
-        <div className="container">
-          {/* контейнер 1 */}
-          <div className="container-in-0">
-            {/* текст контейнера */}
-            <div className="container-tx-0">
-              <h1 className="logo-name name-info">
-                <span>Web</span> Component -
-              </h1>
-              <p className="info-tx-01">
-                В этом приложении вы можете <br />
-                сделать для своего сайта <br />
-                слайдер, шапку, анимации и <br />
-                многое другое.
-              </p>
+        <div className='works__container_info'>
+            <h1 className="works_logo-name">
+                <span>У Web</span> Component
+            </h1>
+            <p>
+            <span>Р</span>асположение обьектов на холсте происходит по принципу системе координат
+            </p> 
+            <div className='controls_info-c'>
+                <p><span>К</span>примеру:</p>
+                <span>
+                  <span>Н</span>а системе координат есть прямоугольник (рис. - 1). Представим что это див, который мы хотим расположить по центру, абсолютным нулем будет пересечение двух прямых X и Y. У прямоугольника ширина 80px и бордер 4px, сообветственно ширина теперь = 88px, что бы сделать его по центру X , ширину нужно разделить на 2 и получим 44px. Значит в окне с координатом X (рис. - 2) надо записать -44, аналогично делаем с Y и получаем блок по центру. Но как вы могли заметить, прямая Y повернута вниз - это говорит о том, что все то что уйдет вниз по прямой Y, это будут цифры со знаком “+”,  а все что уйдет  вверх со знаком “-”.
+                </span>
+                <button>
+                  <Link to="/works/detailed">Подробнее</Link>
+                </button>
+                <div className='container_img-works'>
+                  <img src={photo_1} alt="" />
+                  <img src={photo_2} alt="" className='i_contril-2' />
+                </div>
             </div>
-            {/* фото */}
-            <div className="img-tx-info">
-              <img src={imgOne} alt="" />
-            </div>
-          </div>
-          <div className="start-content">
-            <p className="start-tx">Что бы начать работу нажмите на кнопку</p>
-            <Link to="/workspace" className="btn-st-0">
-              начать
-            </Link>
-          </div>
-          {/* контейнер 2 */}
-          <div className="container-in-0 container-01">
-            {/* видео */}
-            <div className="img-tx-info controler-img-0">
-              <img src={imgTwo} alt="" />
-              <video autoPlay loop muted className="video-player">
-                <source src={VideoBox} type="video/mp4" />
-              </video>
-            </div>
-            {/* текст контейнера */}
-            <div className="container-tx-0 controler-txt-0">
-              <h1 className="logo-name name-info">
-                У <span>Web</span> Component
-              </h1>
-              <p className="info-tx-01">
-                Простой и поятный интерфейс <br />
-                при входе в него вас встретит <br />
-                подсказка которая обьяснит <br />
-                вам всё.
-              </p>
-            </div>
-          </div>
-          {/* контейнер 3 */}
-          <div className="container-in-0 controler-in-01">
-            {/* текст контейнера */}
-            <div className="container-tx-0">
-              <h1 className="logo-name name-info controler-txt-01">
-                На <span>Web</span> Component
-              </h1>
-              <p className="info-tx-01">
-                Вы можете сразу посмотреть <br />
-                готовый код вашего компонента <br />
-                или скачать его. <br />
-              </p>
-            </div>
-            {/* фото */}
-            <div className="img-tx-info controler-im-0">
-              <img src={imgFree} alt="" />
-            </div>
-          </div>
         </div>
       </div>
     </div>
   );
 }
 
-{/* отключение скрола по ctrlKey */}
-window.onload = function () {
-  document.getElementById('root').addEventListener('wheel', event => {
-      if (event.ctrlKey) {
-          event.preventDefault()
-      }
-  }, true);
-}
 
-export default Home;
+export default HowItWorks;
