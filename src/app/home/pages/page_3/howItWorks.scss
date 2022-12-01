@@ -1,0 +1,174 @@
+.works_disableZoom 
+{ 
+    position: absolute;
+    width: 100%; 
+    max-height: 13500px;
+    height: 100%; 
+}
+
+.works_App 
+{
+    position: absolute;
+    width: 1350px;
+//    height: 100%;
+    top: 75px;
+    left: 50%;
+    border-radius: 60px 60px 0 0;
+    transform: translate(-50%);
+    .works_header-app
+    {
+        width: 100%; 
+        height: 125px;
+        .works_logo-container
+        {
+            display: flex;
+            position: absolute;
+            width: 1200px;
+            margin-left: 0;
+            margin-top: 0;
+            padding: 54px 0 0 54px;
+            svg
+            {
+                margin-left: 50px;
+                margin-top: -10px;
+            }
+            &::after
+            {
+                content: '';
+                position: absolute;
+                width: 1200px;
+                height: 0.03vw;
+                top: 120px;
+                left: 75px;
+                background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 51.1%, rgba(255, 255, 255, 0) 99.1%);
+            }
+            .works_logo-name
+            {
+                position: relative;
+                margin-left: 5px;
+                padding-top: 1px;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 5px;
+                a
+                {
+                    text-decoration: none;
+                    cursor: url(../../../assets/imegs/pointer.png), auto;
+                    span {cursor: url(../../../assets/imegs/pointer.png), auto; }
+                }
+            }
+            .works_ul-container
+            {
+                display: flex;
+                list-style: none;
+                position: relative;
+                top: -25px;
+                left: 155px;
+                .works_btn-con
+                {
+                    margin-left: 10px;
+                    .works_ul_li-btn
+                    {
+                        background: none;
+                        border: none;
+                        font-size: 16px;
+                        font-weight: 600;
+                        .works_link-nav
+                        {
+                            color: #ffffff;
+                            text-decoration: none !important;
+                            .works_continer_tx-nav
+                            {
+                                cursor: url(../../../assets/imegs/pointer.png), auto;
+                                transition: 0.4s;
+                                span{
+                                  color: #4AFF93;
+                                  transition: 0.4s;
+                                }
+                                &:hover > span{
+                                  color: #fff;
+                                  transition: 0.6s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .works__container_info
+    {
+        display: block;
+        max-width: 1160px;
+        width: 100%;
+        margin-top: 70px;
+        margin-left: 54px;
+        h1
+        {
+            padding-top: 50px;
+            margin-left: 50px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+        p
+        {
+            width: 835px;
+            margin-top: -20px;
+            margin-left: 50px;
+            font-size: 24px;
+            font-weight: 300;
+            color: #FFFFFF;
+            span
+            {
+                color: #4AFF93;
+            }
+        }
+        .controls_info-c
+        {
+            margin-left: 50px;
+            color: #FFFFFF;
+            p
+            {
+                margin-top: 15px;
+                margin-left: 0px;
+                font-size: 24px;
+                font-weight: 300;
+                span
+                {
+                    display: contents;
+                    font-size: 24px;
+                    color: #4AFF93;
+                }
+            }
+            span
+            {
+                display: block;
+                width: 795px;
+                margin-top: -20px;
+                margin-left: 50px;
+                font-size: 20px;
+                font-weight: 300;
+                span
+                {
+                    display: contents;
+                    font-size: 20px;
+                    color: #4AFF93;
+                }
+            }
+            .container_img-works
+            {
+                display: flex;
+                margin-left: 50px;
+                margin-top: 100px;
+                margin-bottom: 100px;
+                .i_contril-2
+                {
+                    display: block;
+                    margin-left: 250px;
+                    margin-top: 80px;
+                    height: 320px;
+                }
+            }
+        }
+    }
+}

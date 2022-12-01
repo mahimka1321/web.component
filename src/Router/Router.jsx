@@ -2,13 +2,13 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 
-import Home from '../redactor/home/Home';
-import AboutTheProject from '../redactor/home/AboutTheProject'; 
-import HowItWorks from '../redactor/home/HowItWorks'; 
-import Detailed from '../redactor/home/Detailed'; 
+import Home from '../app/home/Home';
+import AboutTheProject from '../app/home/pages/page_1/AboutTheProject'; 
+import HowItWorks from '../app/home/pages/page_3/HowItWorks'; 
+import Detailed from '../app/home/pages/page_3/moreDetailed/Detailed'; 
 
-import RedactorMenu from '../redactor/window.redactor/RedactorMenu';
-import Title from '../redactor/window.redactor/Title';   
+import RedactorMenu from '../app/workspace/RedactorMenu';
+import Title from '../app/workspace/Title';   
 
 
 const Router = () => {
