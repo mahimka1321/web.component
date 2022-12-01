@@ -156,7 +156,7 @@ function RedactorMenu() {
 
     return (
         <div className="container-main anim-c main__containre_redactor">    
-            <Hint />
+            {/* <Hint /> */}
             <PopupCode 
                 htmlContainer={htmlContainer} 
                 cssSlider={cssSlider} 

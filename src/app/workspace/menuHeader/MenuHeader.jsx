@@ -50,7 +50,7 @@ function TopMenu({setPop,pop,setScroller,scroller,setPos}) {
             window.location.reload();
             window.Storage.removeItem("btnNeE");
             window.Storage.removeItem("posZ");
-        }else { alert('Отменено') };
+        } else { alert('Отменено') };
         removeMove();
         removeZoom();
     };
@@ -123,7 +123,7 @@ function TopMenu({setPop,pop,setScroller,scroller,setPos}) {
 
 */
     
-document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function(event) {
         if (event.ctrlKey && event.code === 'KeyM') {  
             let moveBtn2 = document.getElementById("moveBtn2")
             let btn3 = document.getElementById("btn3");
@@ -141,43 +141,47 @@ document.addEventListener('keydown', function(event) {
 
     document.addEventListener('keydown', function(event){
       if (event.ctrlKey && event.code === 'KeyZ') {  
-        let moveBtn2 = document.getElementById("moveBtn2")
-          let btn3 = document.getElementById("btn3");
-          let btn5 = document.getElementById("btn5");
-          moveBtn2.classList.remove("ropwei")
-          btn3.classList.remove("ropwei")
-          btn5.classList.add("ropwei")
-          
-          setScroller(scroller + 1)
-          setPop(pop = 0)
-          removeMove()
-          event.preventDefault();
-      }
+            let moveBtn2 = document.getElementById("moveBtn2")
+            let btn3 = document.getElementById("btn3");
+            let btn5 = document.getElementById("btn5");
+            moveBtn2.classList.remove("ropwei")
+            btn3.classList.remove("ropwei")
+            btn5.classList.add("ropwei")
+            
+            setScroller(scroller + 1)
+            setPop(pop = 0)
+            removeMove()
+            event.preventDefault();
+        }
     });
     
-     // Кнопка выделения обьекта (показ настрое (по нажанию на кнопку "С"))
-     document.addEventListener('keydown', function(event) {
-                    if (event.ctrlKey && event.code === 'KeyC') {
-                        let moveBtn2 = document.getElementById("moveBtn2")
-                        let btn3 = document.getElementById("btn3");
-                        let btn5 = document.getElementById("btn5");
-                        moveBtn2.classList.add("ropwei")
-                        btn3.classList.remove("ropwei")
-                        btn5.classList.remove("ropwei")
-                        setPop(pop = 0)
-                        let divCan = document.getElementById("divCan")
-                        divCan.addEventListener('click', function() {
-    
-                        let meaningCl = document.getElementById("meaningCl")
-                        meaningCl.classList.add("meaning_cl-target") // toggle
-                    })
-                    event.preventDefault();
-                }
-            });
+    // Кнопка выделения обьекта (показ настрое (по нажанию на кнопку "С"))
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.code === 'KeyC') {
+            let moveBtn2 = document.getElementById("moveBtn2")
+            let btn3 = document.getElementById("btn3");
+            let btn5 = document.getElementById("btn5");
+            moveBtn2.classList.add("ropwei")
+            btn3.classList.remove("ropwei")
+            btn5.classList.remove("ropwei")
+
+            setPop(pop = 0)
+
+            let divCan = document.getElementById("divCan")
+            divCan.addEventListener('click', function() {
+                let meaningCl = document.getElementById("meaningCl")
+                meaningCl.classList.add("meaning_cl-target") // toggle
+            })
+        event.preventDefault();
+        }
+    });
 
     
-            document.addEventListener('keydown', function(event){
-        if(event.ctrlKey && event.shiftKey && event.code === 'KeyS'){ setPos({scale: 1 });event.preventDefault();};
+    document.addEventListener('keydown', function(event){
+        if(event.ctrlKey && event.shiftKey && event.code === 'KeyS'){ 
+            setPos({scale: 1 });
+            event.preventDefault();
+        };
     });
     
     if(pop >= 1){ pop = -1 }; 
