@@ -1,141 +1,239 @@
 .about_disableZoom 
 { 
-    position: absolute;
-    width: 100%; 
-    max-height: 13500px;
-    height: 100%; 
-}
-
-.about_App 
-{
-    position: absolute;
-    width: 1350px;
-    height: 92.1%;
-    top: 75px;
-    left: 50%;
-    border-radius: 60px 60px 0 0;
-    transform: translate(-50%);
-    .about_header-app
+    .about_app 
     {
-        width: 100%; 
-        height: 125px;
-        .about_logo-container
+        display: block;
+        min-width: 320px;
+        max-width: 1350px;
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        height: 1241px;
+        background: url(../../../assets/imegs/bgg-au.png) no-repeat center center;
+        margin-top: 90px;
+        .container_title
         {
-            display: flex;
-            position: absolute;
-            width: 1200px;
-            margin-left: 0;
-            margin-top: 0;
-            padding: 54px 0 0 54px;
-            svg
+            display: grid;
+            grid-template-columns: 1fr;
+            width: 1100px;
+            height: 390px;
+            margin: 0 auto;
+            justify-content: center;
+            margin-top: 50px;
+            h1 
             {
-                margin-left: 50px;
-                margin-top: -10px;
-            }
-            &::after
-            {
-                content: '';
-                position: absolute;
-                width: 1200px;
-                height: 0.03vw;
-                top: 120px;
-                left: 75px;
-                background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 51.1%, rgba(255, 255, 255, 0) 99.1%);
-            }
-            .about_logo-name
-            {
-                position: relative;
-                margin-left: 5px;
-                padding-top: 1px;
-                font-size: 20px;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
                 font-weight: 700;
-                line-height: 5px;
-                a
+                font-size: 128px;
+                line-height: 150px;
+                color: #fff;
+                text-shadow: 0px 0px 35px #000000;
+                margin-left: 9px;
+            }
+            p
+            {
+                font-family: 'Roboto', sans-serif;
+                width: 640px;
+                margin-left: 230px;
+                margin-top: -107px;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 20px;
+                line-height: 23px;
+                color: #fff;
+                span
                 {
-                    text-decoration: none;
-                    cursor: url(../../../assets/imegs/pointer.png), auto;
-                    span {cursor: url(../../../assets/imegs/pointer.png), auto; }
+                    margin-left: 500px;
                 }
             }
-            .about_ul-container
+        }
+        .container__there_is
+        {
+            display: flex;
+            width: 640px;
+            height: 120px;
+            margin: 0 auto;
+            justify-items: center;
+            margin-top: 127px;
+            .box_scroll
             {
-                display: flex;
-                list-style: none;
-                position: relative;
-                top: -25px;
-                left: 155px;
-                .about_btn-con
+                display: block;
+                width: 310px;
+                height: 100px;
+                background: #343434;
+                border-radius: 8px 0px 0px 8px;
+                overflow-x: hidden;
+                overflow-y: scroll;
+                transform: rotateY(180deg);
+                margin-left: 13px;
+                &::-webkit-scrollbar 
                 {
-                    margin-left: 10px;
-                    .about_ul_li-btn
+                  width: 0.6vw;    
+                }
+                &::-webkit-scrollbar-track 
+                {
+                  background: #ffffff; 
+                }
+                &::-webkit-scrollbar-thumb 
+                {
+                  background-clip: padding-box;
+                  background: #4AFF93; 
+                  border: none;
+                } 
+                .nav__there_is
+                {
+                    transform: rotateY(180deg);
+                    position: relative;
+                    left: 20px;
+                    li
                     {
-                        background: none;
-                        border: none;
-                        font-size: 16px;
-                        font-weight: 600;
-                        .about_link-nav
+                        list-style: none;
+                        margin-top: 7px;
+                        a
                         {
-                            color: #ffffff;
-                            text-decoration: none !important;
-                            .about_continer_tx-nav
+                            color: #fff;
+                            font-family: 'Roboto';
+                            font-style: normal;
+                            font-weight: 300;
+                            font-size: 20px;
+                            line-height: 23px;
+                            text-decoration: none;
+                            text-align: left;
+
+                            cursor: url(../../../assets/imegs/pointer.png), auto;
+                            &:hover
                             {
-                                cursor: url(../../../assets/imegs/pointer.png), auto;
-                                transition: 0.4s;
-                                span{
-                                  color: #4AFF93;
-                                  transition: 0.4s;
-                                }
-                                &:hover > span{
-                                  color: #fff;
-                                  transition: 0.6s;
-                                }
+                                color: #4AFF93;
                             }
                         }
                     }
                 }
             }
+            .text__there_is
+            {
+                p
+                {
+                    font-family: 'Roboto';
+                    width: 291px;
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 20px;
+                    line-height: 23px;
+                    color: #FFFFFF;
+                    margin-left: 50px;
+                    margin-top: 0;
+                }
+            }
         }
-    }
-    .about__container_info
-    {
-        display: block;
-        max-width: 1160px;
-        width: 100%;
-        margin-top: 70px;
-        margin-left: 54px;
-        h1
+        .container__not_added
         {
-            padding-top: 50px;
-            margin-left: 50px;
-            font-size: 32px;
-            font-weight: 700;
-        }
-        p
-        {
-            width: 650px;
-            margin-top: -20px;
-            margin-left: 50px;
-            font-size: 24px;
-            font-weight: 300;
-            color: #FFFFFF;
-        }
-        .controls_added-c
-        {
+            display: flex;
+            width: 640px;
+            height: 120px;
+            margin: 0 auto;
+            justify-items: center;
             margin-top: 100px;
-            margin-left: 50px;
-            color: #FFFFFF;
-            p
+            .box_scroll
             {
-                margin-left: 0px;
-                font-size: 24px;
-                font-weight: 300;
+                display: block;
+                width: 310px;
+                height: 100px;
+                background: #343434;
+                border-radius: 8px 0px 0px 8px;
+                overflow-x: hidden;
+                overflow-y: scroll;
+                &::-webkit-scrollbar 
+                {
+                  width: 0.6vw;    
+                }
+                &::-webkit-scrollbar-track 
+                {
+                  background: #ffffff; 
+                }
+                &::-webkit-scrollbar-thumb 
+                {
+                  background-clip: padding-box;
+                  background: #4AFF93; 
+                  border: none;
+                } 
+                .nav__not_added
+                {
+                    position: relative;
+                    left: 20px;
+                    li
+                    {
+                        list-style: none;
+                        margin-top: 7px;
+                        a
+                        {
+                            color: #fff;
+                            font-family: 'Roboto';
+                            font-style: normal;
+                            font-weight: 300;
+                            font-size: 20px;
+                            line-height: 23px;
+                            text-decoration: none;
+                            text-align: left;
+
+                            cursor: url(../../../assets/imegs/pointer.png), auto;
+                            &:hover
+                            {
+                                color: #4AFF93;
+                            }
+                        }
+                    }
+                }
             }
-            span
+            .text__not_added
             {
-                margin-left: 50px;
-                font-size: 16px;
-                font-weight: 300;
+                p
+                {
+                    font-family: 'Roboto';
+                    width: 291px;
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 20px;
+                    line-height: 23px;
+                    color: #FFFFFF;
+                    margin-left: 13px;
+                    margin-top: 0;
+                }
             }
         }
     }
+}
+
+.slider_p
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(../../../assets/imegs/slider-p.png);
+  a {cursor: url(../../../assets/imegs/pointer.png), auto;}
+}
+
+.header_p
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(../../../assets/imegs/header-p.png);
+  a {cursor: url(../../../assets/imegs/pointer.png), auto;}
+}
+
+.gl_p
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(../../../assets/imegs/gl-p.png);
+  a {cursor: url(../../../assets/imegs/pointer.png), auto;}
 }

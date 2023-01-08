@@ -157,7 +157,7 @@ function TopMenu({setPop,pop,setScroller,scroller,setPos}) {
     
     // Кнопка выделения обьекта (показ настрое (по нажанию на кнопку "С"))
     document.addEventListener('keydown', function(event) {
-        if (event.ctrlKey && event.code === 'KeyC') {
+        if (event.ctrlKey && event.shiftKey && event.code === 'KeyC') {
             let moveBtn2 = document.getElementById("moveBtn2")
             let btn3 = document.getElementById("btn3");
             let btn5 = document.getElementById("btn5");
